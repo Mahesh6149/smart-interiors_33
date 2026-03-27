@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Interiors</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <script>
+    window.addEventListener('load', () => {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: '#FFC107',
+              brand: '#1a1a1a',
+            },
+            fontFamily: {
+              serif: ['Playfair Display', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    header.scrolled {
+      background: #F9F9F6;
+      backdrop-filter: blur(01px);
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-bg {
+      background-image: url("Images/Hero.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .project-card {
+      transition: all 0.4s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.04) translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.7s ease; }
+    .reveal.shown { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="font-sans bg-white text-brand">
+
+<!-- NAVBAR -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white border-b transition-all duration-300">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 h-20">
+    <div class="flex items-center gap-3">
+      <img src="Images/Logo.png" alt="Smart Interiors" class="h-24 w-24 object-contain"/>
+      <span class="font-bold text-2xl">Smart Interiors</span>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#home" class="text-gold font-medium">HOME</a>
+      <a href="#services" class="hover:text-gold transition-colors">SERVICES</a>
+      <a href="#projects" class="hover:text-gold transition-colors">PROJECTS</a>
+      <a href="#about" class="hover:text-gold transition-colors">ABOUT</a>
+      <a href="#contact" class="hover:text-gold transition-colors">CONTACT</a>
+    </nav>
+
+    <a href="#contact" 
+       class="hidden md:block bg-gold text-black font-semibold px-8 py-3 rounded-2xl hover:bg-amber-500 transition-colors">
+      GET QUOTE
+    </a>
+
+    <button onclick="toggleMenu()" class="md:hidden text-3xl">☰</button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobileNav" class="fixed top-20 left-0 right-0 bottom-0 bg-white z-40 p-8 flex flex-col gap-6 md:hidden hidden">
+  <a href="#home" onclick="closeMenu()" class="text-xl font-medium">Home</a>
+  <a href="#services" onclick="closeMenu()" class="text-xl font-medium">Services</a>
+  <a href="#projects" onclick="closeMenu()" class="text-xl font-medium">Projects</a>
+  <a href="#about" onclick="closeMenu()" class="text-xl font-medium">About</a>
+  <a href="#contact" onclick="closeMenu()" class="text-xl font-medium">Contact</a>
+  <a href="#contact" onclick="closeMenu()" class="mt-6 bg-gold text-black text-center py-4 rounded-2xl font-semibold">GET QUOTE</a>
+</div>
+
+<!-- HERO -->
+<section id="home" class="relative h-screen mt-20 hero-bg">
+  <div class="absolute inset-0 bg-black/40"></div>
+  
+  <div class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
+    <h1 class="font-serif text-5xl md:text-6xl font-bold text-white leading-tight max-w-4xl">
+      Transform Your Space Into a<br>
+      <span class="text-gold">Smart Masterpiece</span>
+    </h1>
+    <p class="mt-8 text-white/90 text-lg md:text-xl max-w-none leading-relaxed">
+  Experience the perfect blend of innovative design and intelligent living. We create sophisticated interiors <br> that elevate your lifestyle and reflect your unique vision.
+</p>
+    <a href="#contact" 
+       class="mt-12 inline-block bg-gold text-black font-medium px-12 py-5 rounded-[10px] hover:bg-amber-500 transition-all text-lg shadow-sm hover:shadow-md">
+  Book a Consultation →
+    </a>
+  </div>
+</section>
+
+<!--  OUR SERVICES -->
+<section id="services" class="py-24 bg-white px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16">
+      <h2 class="text-5xl font-bold text-left">Our Services</h2>
+      <p class="text-gray-600 mt-4 max-w-2xl text-left">
+        We offer a comprehensive suite of design solutions tailored to <br> elevate your living environment through precision and curated <br> aesthetics.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="reveal bg-[#F4F4F1] p-8 rounded-3xl hover:shadow-lg transition-all">
+        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-3xl"></div>
+        <h3 class="font-semibold text-2xl mb-3">Interior Design</h3>
+        <p class="text-gray-600">Transform your space with personalized interiors that blend style, comfort, and functionality, tailored to reflect your unique lifestyle.</p>
+      </div>
+
+      <div class="reveal bg-[#F4F4F1] p-8 rounded-3xl hover:shadow-lg transition-all">
+        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-3xl"></div>
+        <h3 class="font-semibold text-2xl mb-3">Smart Automation</h3>
+        <p class="text-gray-600">Experience modern living with intelligent systems that manage lighting, climate, and security <br>for enhanced convenience.</p>
+      </div>
+
+      <div class="reveal bg-[#F4F4F1] p-8 rounded-3xl hover:shadow-lg transition-all">
+        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-3xl"></div>
+        <h3 class="font-semibold text-2xl mb-3">Lighting Design</h3>
+        <p class="text-gray-600">Create the perfect ambiance with thoughtfully designed lighting that enhances mood and features and elevates your interiors.</p>
+      </div>
+
+      <div class="reveal bg-[#F4F4F1] p-8 rounded-3xl hover:shadow-lg transition-all">
+        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-3xl"></div>
+        <h3 class="font-semibold text-2xl mb-3">Custom Furniture</h3>
+        <p class="text-gray-600">Elevate your space with bespoke furniture crafted to match your taste. combining durability, elegance, and precision design.</p>
+      </div>
+
+      <div class="reveal bg-[#F4F4F1] p-8 rounded-3xl hover:shadow-lg transition-all">
+        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-3xl"></div>
+        <h3 class="font-semibold text-2xl mb-3">Color Curating</h3>
+        <p class="text-gray-600">Bring harmony to your interiors with expertly chosen color palettes that enhance aesthetics and create a balanced environment..</p>
+      </div>
+
+      <div class="reveal bg-[#F4F4F1] p-8 rounded-3xl hover:shadow-lg transition-all">
+        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-3xl"></div>
+        <h3 class="font-semibold text-2xl mb-3">Space Planning</h3>
+        <p class="text-gray-600">Maximize every corner of your space with strategic layouts that ensure efficiency, comfort, and seamless flow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PROJECTS -->
+<section id="projects" class="py-24 bg-gray-50 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <h2 class="text-5xl font-bold">Our Projects</h2>
+        <p class="text-gray-600 mt-3">A glimpse into our curated portfolio of residential and <br> commercial transformations.</p>
+      </div>
+      <a href="#" class="text-gold font-medium flex items-center gap-2 hover:gap-3 transition-all">View All →</a>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="reveal rounded-3xl overflow-hidden shadow-sm">
+        <img src="Images/Project 1.png" alt="Kitchen" class="w-full h-full object-cover"/>
+      </div>
+      <div class="reveal rounded-3xl overflow-hidden shadow-sm">
+        <img src="Images/Project 2.png" alt="Bedroom" class="w-full h-full object-cover"/>
+      </div>
+      <div class="reveal rounded-3xl overflow-hidden shadow-sm">
+        <img src="Images/Project 3.png" alt="Lounge" class="w-full h-full object-cover"/>
+      </div>
+      <div class="reveal rounded-3xl overflow-hidden shadow-sm">
+        <img src="Images/Project 4.png" alt="Studio" class="w-full h-full object-cover"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER-->
+<footer id="contact" class="bg-zinc-100 py-16 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+    <div>
+      <div class="flex items-center gap-3 mb-6">
+        <img src="Images/Logo.png" alt="Logo" class="h-24 w-24 object-contain"/>
+        <span class="font-bold text-2xl">Smart Interiors</span>
+      </div>
+      <p class="text-gray-600 leading-relaxed">
+        Curating high-end architectural spaces with a focus on smart living and timeless design principles.
+        
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-5 text-sm tracking-widest">QUICK LINKS</h4>
+      <ul class="space-y-3 text-gray-600">
+        <li><a href="#home" class="hover:text-gold">Home</a></li>
+        <li><a href="#services" class="hover:text-gold">Services</a></li>
+        <li><a href="#projects" class="hover:text-gold">Projects</a></li>
+        <li><a href="#about" class="hover:text-gold">About</a></li>
+        <li><a href="#contact" class="hover:text-gold">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-5 text-sm tracking-widest">CONTACT</h4>
+      <div class="text-gray-600 space-y-3">
+        <p>123 Bengaluru Karnataka,<br>560037</p>
+        <p>+91 98765 43210</p>
+        <p>support@smartinteriors.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto border-t border-gray-300 mt-16 pt-8 text-sm text-gray-500 flex flex-col md:flex-row justify-between items-center gap-4">
+    <p>© 2026 Smart Interiors. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-gold">Privacy Policy</a>
+      <a href="#" class="hover:text-gold">Terms of Service</a>
+
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lb" class="hidden fixed inset-0 z-[2000] bg-black/90 items-center justify-center">
+  <button onclick="closeLb()" class="absolute top-6 right-6 text-5xl text-white hover:text-gold">&times;</button>
+  <img id="lbImg" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain rounded-2xl"/>
+</div>
+
+<script>
+  // Navbar blur on scroll
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile Menu
+  function toggleMenu() {
+    const menu = document.getElementById('mobileNav');
+    menu.classList.toggle('hidden');
+  }
+  function closeMenu() {
+    document.getElementById('mobileNav').classList.add('hidden');
+  }
+
+  // Lightbox
+  function openLb(src) {
+    document.getElementById('lbImg').src = src;
+    document.getElementById('lb').classList.remove('hidden');
+    document.getElementById('lb').classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    const lb = document.getElementById('lb');
+    lb.classList.add('hidden');
+    lb.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  // Scroll Reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('shown');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
